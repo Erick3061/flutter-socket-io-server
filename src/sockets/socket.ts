@@ -7,8 +7,16 @@ Io.on('connection', client => {
 
     });
 
+
     client.on('mensaje', (payload) => {
         console.log('Mensaje', { payload });
         Io.emit('mensaje', { admin: 'Nuevo mensaje' })
-    })
+    });
+
+    client.on('qqqq', (payload) => {
+        console.log(payload);
+
+        Io.emit('nuevo-mensaje', 'HEY...' + payload);
+    });
+
 });
